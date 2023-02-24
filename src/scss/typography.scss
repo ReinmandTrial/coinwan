@@ -1,0 +1,118 @@
+@import "variables";
+
+.h1-heading, .h2-heading {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.h1-heading {
+  @media (max-width: 992px) {
+    font-size: 30px;
+  }
+}
+
+.h2-heading {
+  @media (max-width: 992px) {
+    font-size: 24px;
+  }
+}
+
+.h6-heading {
+    margin: 0 0 15px;
+    font-size: 16px;
+    font-weight: 600;
+
+    @media (max-width: 992px) {
+      font-size: 14px;
+    }
+}
+
+.text {
+  &-big {
+    font-size: 24px;
+
+    @media (max-width: 992px) {
+      font-size: 16px;
+    }
+  }
+
+  &-lightgrey {
+    color: $lightgrey-color;
+  }
+
+  &-darkblue {
+    color: $dark-blue-color;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 40px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  min-width: 168px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: .3s;
+
+  @media (max-width: 992px) {
+    padding: 13px 30px;
+
+    + .btn {
+      margin-left: 20px;
+    }
+  }
+
+  &-blue-fill {
+    background-color: $blue-color;
+    border: 1px solid $blue-color;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: $blue-color;
+    }
+  }
+
+  &-white-fill {
+    background-color: white;
+    border: 1px solid white;
+    color: $blue-color;
+
+    &:hover {
+      background-color: $blue-color;
+      color: white;
+    }
+  }
+
+  &-white {
+    border: 1px solid #FFFFFF;
+
+    &:hover {
+      border-color: $blue-color;
+      color: $blue-color;
+    }
+  }
+
+  &-group {
+    .btn + .btn {
+        margin-left: 25px;
+    }
+  }
+}
+
+.profit-badge {
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: $green-dark-color;
+  color: $green-bright-color;
+  font-weight: 500;
+  border-radius: 4px;
+
+  &.decrease {
+    background-color: $red-dark-color;
+    color: $red-bright-color;
+  }
+}
