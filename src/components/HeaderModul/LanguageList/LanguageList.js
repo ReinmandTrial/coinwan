@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+
 import LanguageListItem from '../LanguageListItem/LanguageListItem';
 import api from '../../../api';
+import { useTranslation } from 'react-i18next';
 
 function LanguageList({ curLang, setCurLang }) {
    const [langList] = useState([
@@ -20,7 +21,7 @@ function LanguageList({ curLang, setCurLang }) {
    useEffect(() => {
       const getLang = localStorage.getItem('i18nextLng');
       const curName = langList.find((item) => item.langISO === getLang);
-      setCurLang({ languageNamed: curName.lang, langISO: getLang });
+      setCurLang({ languageNamed: curName?.lang, langISO: getLang });
    }, []);
 
    function langSwitch(e) {
