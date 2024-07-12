@@ -27,10 +27,9 @@ function LanguageList({ curLang, setCurLang }) {
    function langSwitch(e) {
       const curName = langList.find((item) => item.langISO === e.target.value);
       setCurLang({ languageNamed: curName.lang, langISO: e.target.value });
-      api.post('/api/v1/language', { language: e.target.value });
    }
    return (
-      <ul className="website-settings-list">
+      <ul className='website-settings-list'>
          {langList.map((item) => (
             <LanguageListItem
                key={item.langISO}

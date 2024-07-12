@@ -15,20 +15,33 @@ function CurrencyList() {
 
    const { options, setOptions } = useContext(OptionsContext);
 
-
    useEffect(() => {
-      const curCurrency = JSON.parse(localStorage.getItem('currency')) || { currency: 'USD', currencySign: '$' };
-      setOptions({ ...options, currency: curCurrency.currency, currencySign: curCurrency.currencySign });
+      const curCurrency = JSON.parse(localStorage.getItem('currency')) || {
+         currency: 'USD',
+         currencySign: '$',
+      };
+      setOptions({
+         ...options,
+         currency: curCurrency.currency,
+         currencySign: curCurrency.currencySign,
+      });
    }, []);
 
    function currencySwitch(e) {
       const curSign = currencyList.find((item) => item.currency === e.target.value);
-      localStorage.setItem('currency', JSON.stringify({ currencySign: curSign.currencySign, currency: e.target.value }));
+      localStorage.setItem(
+         'currency',
+         JSON.stringify({ currencySign: curSign.currencySign, currency: e.target.value }),
+      );
       setOptions({ ...options, currencySign: curSign.currencySign, currency: e.target.value });
-      api.post('/api/v1/curency', { curency: e.target.value });
    }
    return currencyList.map((item) => (
-      <CurrencyLIstItem key={item.currency} item={item} currencySwitch={currencySwitch} currentCurrency={options.currency} />
+      <CurrencyLIstItem
+         key={item.currency}
+         item={item}
+         currencySwitch={currencySwitch}
+         currentCurrency={options.currency}
+      />
    ));
 }
 
